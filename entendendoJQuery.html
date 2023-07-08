@@ -14,6 +14,59 @@
     <div>2</div>
 
     <script>
-        // ...
+        // A função $('div')-> retorna uma lista de elementos
+
+        // Utilizando seletor em JQUERY e esconder as divs
+        // para esconder um elemento por um período de tempo,
+        // utilizamos a função .hide(5000)
+        //ex: 5000 = 5 segundos
+        // posso chamar a função passando um tempo 
+        //para o elemento ser visualizado na tela.
+        //ex: show(5000)
+        // Para esconder os elementos aos pouco posso utilizar o 
+        // fadeOut(5000);
+        $('div').hide(5000).show(5000).fadeOut(5000);
+
+        //Apresentar a lista de elementos
+        // no nosso caso são as DIVs.
+        // Utilizando o get(0) estarei busncando o primeiro elemento.
+        console.log($('div').get(0));
+
+        //verificar se o bjeto está vázio
+        // No exemplo estou passando um objeto vázio '{}'
+        // Retorn True or False
+        console.log($.isEmptyObject({}));
+        // ex: Retorna false. Pois, o objeto não está vázio.
+        console.log($.isEmptyObject({nome: null}));
+
+        // Saber se um determinado elemento está no array
+        // ex: verifica se o número 3 está no array 
+        // passado no segundo parâmetro da função
+        // Retorna -1 se o elemento não estiver no array.
+        // Retorna o índice do elemento caso esteja no array.
+        console.log($.inArray(3 , [1,2,3]));
+
+        // Criar plugs com o Jquery extendendo as funcionalidades do JQUERY
+        //Nesse exemplo estarei modificando o backgound-color do body
+
+        $.fn.fundoverde = function () {
+            this.css('background-color', 'green');
+            return this;
+        };
+
+        $('body').fundoverde();
+
+        // Se eu quiser fazer um encadeamento de funções
+        // Exemplo
+        /*
+            $.fn.fundoverde = function () {
+                this.css('background-color', 'green')
+                return this;
+            };
+
+            $('body').fundoverde().hide(5000);
+        
+        */
+
     </script>
 </body>
