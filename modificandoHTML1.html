@@ -13,8 +13,48 @@
     <div id='conteudo1'></div>
     <div id='conteudo2'></div>
     <div id='conteudo3'></div>
+    <div id='conteudo4'></div>
 
     <script>
-        // ...
+        // Função para adicionar elementos dentro de uma Página
+        /*append()-> vai anexando no final*/
+        /*prepend()-> vai anexando no início*/
+        /*html()-> substitue os dados*/
+
+        /* Primeiro exemplo */
+        $('#conteudo1').append('<p>1</p>');
+
+        /* Segundo exemplo */
+        // Criando elementos a partir do JQuery
+        const elementos = [
+            $('<li></li>').append('MERCEDES'),
+            $('<li>').append('BMW'),
+            $('<li>').append('PORSCHE')
+        ];
+        // Concatenando informações da lista com os elementos
+        const lista = $('<ul><li>FERRARI</li></ul>').prepend(elementos);
+
+        //OBS: Se eu utilizar o prepend o elemento será adicionado no
+        //final.
+        // Resultado : A Ferrari estará no final da lista de Carros
+
+        //Adicionando na Tag HTML
+        $('#conteudo2').append(lista);
+
+        /* Terceiro exemplo */
+        $('#conteudo3').append(['<h1>1</h1>', '<h1>2</h1>'])
+            .prepend('<h1>0</h1>');
+        
+        // Utilizando a função html todos os dados de dentro do #conteudo3
+        // será subtituído pela informação da função
+        //Resultado 0 | 1 | 2
+        $('#conteudo3').html('<h1> 0 | 1 | 2 </h1>');
+
+        //Adicionar um texto
+        // OBS: Essa função não interpleta as tag HTML,
+        // para essa função as tag são um texto comum.
+        //Resultado : <h1> 0 | 1 | 2 </h1>
+        $('#conteudo4').text('<h1> 0 | 1 | 2 </h1>');
+
     </script>
 </body>
