@@ -49,6 +49,55 @@
     </form>
 
     <script>
-        // ...
+        //Filtros que JQuery utiliza.
+        // Mas é CSS
+
+        //Pegar um elemento a partir do ID
+        $('#feira').addClass('destaque').removeClass('destaque');
+
+        //Pegar todos os elementos da lista(li)
+        $('li').addClass('destaque');
+
+        //Pegar um atributo 'wm-obrigatorio'
+        $('[wm-obrigatorio]').removeClass('destaque');
+
+        //Pega o attribute com a class='opcional'
+        $('li.opcional').removeClass('destaque');
+
+        // Pegar uma div que dentro da div tem a tag p e detro de p tem a 
+        // tag span
+        $('div p span').addClass('destaque');
+
+        /* Filtros Exclusivos do JQuery*/
+
+        //Pega o primeiro elemento com tag li
+        $('li:first').css('border', 'solid 3px yellow');
+
+        // Pega todos os indices impares dos elementos com tags li
+        $('li:odd').css('border', 'solid 10px orange');
+
+        // Pega o elemento maior que um índice
+        //Nesse exemplo e maior que o índice 1
+        $('li:gt(1)').css('border', 'solid 10px white');
+
+        // Pegar os 3 primeiros elementos li
+        $('li:not(:last)').css('border', 'none');
+
+        //Verificar se em um determinado elemento possui o dado
+        // passado.
+        $('li:contains("r")').css('background-color', 'black');
+
+        /* Filtro para Formulários*/
+
+        //Esconder todos os elementos do formulário
+        $('form *').hide();
+        
+        //Mostrando os elementos
+        $('form :text').show();
+        $('form :password').show();
+        $('form :checkbox').show();
+        $('form :radio').show();
+        $('form :file').show();
+
     </script>
 </body>
