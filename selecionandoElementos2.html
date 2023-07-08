@@ -81,6 +81,44 @@
         <p>Cod3r Ensino</p>
     </footer>
     <script>
-        // ...
+
+        /* Criando Objetos*/
+        const comBorda = {'border': 'solid 8px orange'}
+        const semBorda = {'border': 'none'}
+
+        // Selecionar a tag pai desse link
+        // resposta: seleciona o link 3
+        $('a[href="#link3"]').parent().css(comBorda).css(semBorda);
+
+        //Pegar o último item da lista.
+        // E aplicar o css no li anterior a ele.
+        // resposta: seleciona o link 3
+        $('li:last').prev().css(comBorda).css(semBorda);
+
+        // Pegar a tag pai desse link.
+        //E seleciona o próximo
+        // resposta: seleciona o link 4
+        $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda);
+
+        // Pegar todas as tag pais desse link.
+        $('a[href="#link1"]').parents().css(comBorda).css(semBorda);
+
+        // Pegar elementos até a tag informada.
+        //OBS: a tag informada não é selecionada.
+        $('a[href="#link1"]').parentsUntil('body').css(comBorda).css(semBorda);
+
+        //Pega os filhos de uma determinada Tag
+        $('main').children().css(comBorda).css(semBorda);
+
+        // Pegar todos os elementos a partir de uma determinada Tag
+        // Nesse exemplo a partir da tag body. buscar a tag a(Links).
+        $('body').find('a').css(comBorda).css(semBorda);
+
+        //Criar uma interação no elemento(Semelhante ao foreach)
+        // No Jquery e só utilizar a função each(índice, elemento);
+        $('main').children().each((i, e) => $(e).css(comBorda).css(semBorda));
+        $('li').each((i, e) => {
+            $(e).css(comBorda).css(semBorda);
+        });
     </script>
 </body>
