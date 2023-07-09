@@ -13,13 +13,32 @@
     <div id='conteudo'></div>
 
     <script>
-        const pessoas = [
+        const alunos = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
         
-        // ...
+        // Criar uma tabela 
+        // Realiza a interação do array pessoas 
+        // Adicionar os dados do arrya pessoas nessa tabela.
+        // Inclusão do dados dentro da div com o id conteudo
+
+        const linhas = alunos.map(a => {
+            const tdNome = $('<td>').html(a.nome);
+            const tdNota = $('<td>').html(a.nota);
+            
+            /* Posso utilizar essas 3 formas de retorno */
+            //return $('<tr>').append(tdNome).append(tdNota);
+            //return $('<tr>').append([tdNome, tdNota]);
+            return $('<tr>').append(tdNome, tdNota);
+        });
+
+        const tabela = $('<table>').append(linhas)
+            .css('border', 'solid 5px');
+        
+        $('#conteudo').append(tabela);
+
     </script>
 </body>
