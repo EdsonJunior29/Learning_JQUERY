@@ -13,8 +13,25 @@
     <div id='div1'>1</div>
     <div id='div2'>2</div>
     <div id='div3'>3</div>
-    <div id='resultado'></div>
+    <div id='resultado1'></div>
+    <div id='resultado2'></div>
+    <div id='resultado3'></div>
     <script>
-        // ...
+        // Ler um atributo CSS
+        const fonte = $('#div1').css('font-family');
+        $('#resultado1').append(`Fonte é ${fonte}`);
+
+        //Altera atributo CSS
+        $('#div1').css('font-size', '3em');
+        $('#div1').css('color', 'black');
+
+        //Posso alterar o css utilizando um objeto
+        const fonte2 = $('#div2').css({'font-size' : '3em', 'color': 'blue'});
+        $('#resultado2').append(fonte2);
+
+        const fonte3 = $('#div3').css({'font-size' : '3em'});
+        $('#resultado3').append(fonte3);
+
+
     </script>
 </body>
