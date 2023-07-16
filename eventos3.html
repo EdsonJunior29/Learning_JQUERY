@@ -21,11 +21,40 @@
 <body class='conteudo exercicio'>
     <h1>Eventos #03</h1>
     <div id='div1'>1</div>
-    <div id='div2'>1</div>
+    <div id='div2'>2</div>
     <input id='input1' type='text' placeholder='Digite Algo!'>
     <span id='resultado'></span>
 
     <script>
-        // ...
+        function exibirDadosEvento(e) {
+            $('#resultado').empty();
+            const div1 = $('<div>');
+            const div2 = $('<div>');
+
+            $('#resultado').append(div1, div2);
+
+            div1.append(`Target: ${e.target.id}`);
+
+            const rt = e.relatedTarget ? e.relatedTarget.tagName : null
+            div1.append(`<br> relatedTarget: ${rt}`);
+            //mostrar o tipo de envento
+            div1.append(`<br> type: ${e.type}`);
+
+            //se for envento de teclado vai apresentar a tecla e se for o mouse
+            // vai mostar o botão
+            div1.append(`<br> which: ${e.which}`);
+
+            // Tecla com o símbolo do windows
+            div1.append(`<br> metaKey: ${e.metaKey}`);
+
+            div1.append(`<br> pageX: ${e.pageX}`);
+            div1.append(`<br> pageY: ${e.pageY}`);
+
+            div1.append(`<br> clientX: ${e.clientX}`);
+            div1.append(`<br> clientY: ${e.clientY}`);
+        }
+
+        $('#div1, #div2').on('mouseenter mouseleave', exibirDadosEvento);
+        $('input').keyup(exibirDadosEvento);
     </script>
 </body>
