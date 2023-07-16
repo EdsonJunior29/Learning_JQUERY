@@ -21,6 +21,39 @@
     <input type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        // Houver : quando o curso estiver em cima tem um comportamento
+        // Nesse caso estará em destaque auando o curso do mouse estiver em cima.
+        // OBS: No hover posso ter dois parâmetros.
+        // O primeiro está relacionado ao curso em cima e o outro quando o 
+        // curso não estiver em cima.
+        const alternarDestaque = () => $('#div1').toggleClass('destaque');
+        // Posso utilizar a função on();
+        //ex: $('#div1').on('mouseenter mouseleave', alternarDestaque);
+        $('#div1').hover(alternarDestaque);
+
+
+        // Função One: informa que esse evento será feito somente uma vez.
+        // E não acontecerá mais.
+        // Nesse exemplo, quando o mouse estiver em cima da div
+        // o alert vai ser apresentado 1 vez, e não será apresentado mais.
+        //OBS: Só será apresentado novamente se a página for recarregada.
+        $('#div1').one('mouseenter', event => alert('Evento Importante.....'));
+
+        // Função para double clicks
+        //Nesse exemplo ao clicar 2 vezes.
+        // O elemento irá sumir e depois voltar.
+        //fadeOut(1000): Fazer o evento ir sumindo aos pouco.
+        //fadeIn(1000): O elemento irá voltar a ser apresentado.
+        $('#div1').dblclick(event => $('#div1').fadeOut(1000).fadeIn(1000));
+
+
+        // Modificar o elemento sempre que o tamanho da tela for modificado.
+        $(window).resize(function (e) {
+            const l = $(window).width();
+            const a = $(window).height();
+
+            $('#resultado1').html(`Largura: ${l} e Altura: ${a}`);
+        });
+
     </script>
 </body>
