@@ -20,6 +20,38 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        // ************ MOUSE ****************
+        function mostrarPosicaoMouseNaTela(evento) {
+            $('#posicao').html(`x: ${evento.clientX} y: ${evento.clientY}`);
+        }
+        //Alterando O body
+        $('body').on('mousemove', mostrarPosicaoMouseNaTela);
+        //Posso utilizar também a função mouseover();
+        //$('#posicao').mouseleave(e => {
+        //    $('body').mousemove( mostrarPosicaoMouseNaTela); 
+        //});
+
+
+        //************** CLICK ******************
+        let clicks = 0;
+        $('body').click(evento => {
+            $('#cliques').html(`Cliques: ${++clicks}`);
+        });
+
+
+        // *********** TECLADO *****************
+        // Todas as vezes que eu enviar um código de cor inexistênte
+        // vamos utilizar essa cor original.
+       const backgroundOriginal = $('body').css('background-color')
+ 
+        $('input').keyup(function (e) {
+            const valor = $(this).val()
+            if (valor.match(/#[\da-fA-F]{6}/) || valor.match(/#[\da-fA-F]{3}/)) {
+                $('body').css('background-color', valor)
+            } else {
+                $('body').css('background-color', backgroundOriginal)
+            }
+        }) 
+       
     </script>
 </body>
